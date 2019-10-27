@@ -2,10 +2,11 @@ var path = require('path');
 module.exports = {
   entry: './src/index.js',
   output: {
-    path: path.resolve(__dirname, 'build'),
+    path: path.resolve(__dirname, 'dist'),
     filename: 'index.js',
     libraryTarget: 'commonjs2'
   },
+  mode: 'development',
   module: {
     rules: [
       {
@@ -15,13 +16,22 @@ module.exports = {
         use: {
           loader: 'babel-loader',
           options: {
-            presets: ['env']
+            presets: [
+                '@babel/preset-env',
+                '@babel/preset-react',
+                /* {
+                  "pragma": "dom", // default pragma is React.createElement
+                  "pragmaFrag": "DomFrag", // default is React.Fragment
+                  "throwIfNamespace": false // defaults to true
+                } */
+              ],
+            plugins: [
+                '@babel/plugin-transform-react-jsx',
+                '@babel/plugin-proposal-object-rest-spread'
+            ]
           }
         }
       }
     ]
-  },
-  externals: {
-    'react': 'commonjs react' 
   }
 };
