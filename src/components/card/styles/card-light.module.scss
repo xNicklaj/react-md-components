@@ -1,0 +1,10 @@
+@import '../../../static/global.palettes.scss';
+
+.MDCard {
+    background: $bg-color-light;
+    color: $text-color-light-grey;
+}
+
+.MDCardHeader h2{
+    color: $text-color-light;
+}

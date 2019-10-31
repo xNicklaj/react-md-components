@@ -1,0 +1,10 @@
+@import '../../../static/global.palettes.scss';
+
+.MDCard {
+    background: $bg-color-dark;
+    color: $text-color-dark;
+}
+
+.MDCard:hover {
+    background-color: $bg-color-dark-elevated-8dp;
+}
