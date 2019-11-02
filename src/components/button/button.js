@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types';
 
 import style from './styles/button.module.scss'
 import palette from './styles/button.palette.module.scss'
@@ -12,6 +13,18 @@ const MDButton = (props) => {
             {props.children}
         </button>
     </>
+}
+
+MDButton.propTypes = {
+    accentColor: PropTypes.string,
+    outlined: PropTypes.bool,
+    text: PropTypes.bool
+}
+
+MDButton.defaultProps = {
+    accentColor: '',
+    outlined: false,
+    text: false
 }
 
 module.exports = {

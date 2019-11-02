@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types';
 import styles from './styles/card.module.scss'
 
 
@@ -51,6 +52,16 @@ const MDCardSection = ({children}) => {
             {children}
         </p>
     )
+}
+
+MDCard.propTypes = {
+    media: PropTypes.string,
+    dark: PropTypes.bool
+}
+
+MDCard.defaultProps = {
+    media: '',
+    dark: false
 }
 
 module.exports = {
