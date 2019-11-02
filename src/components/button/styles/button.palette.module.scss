@@ -1,0 +1,27 @@
+@import '../../../static/global.palettes.scss';
+
+.MDButtonContained {
+    background: $default-accent-color-700;
+    color: $text-color-dark;
+}
+
+.MDTextButton {
+    background: transparent;
+    color: $default-accent-color-700;
+    transition: background 300ms;
+}
+
+.MDOutlinedButton {
+    border-color: $default-accent-color-700;
+    background: transparent;
+    color: $default-accent-color-700;
+    transition: background 300ms;
+}
+
+.MDOutlinedButton:hover {
+    background: rgba(0, 0, 0, .05)
+}
+
+.MDTextButton:hover {
+    background: rgba(0, 0, 0,.05);
+}
