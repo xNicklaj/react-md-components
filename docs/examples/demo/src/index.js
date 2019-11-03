@@ -7,8 +7,6 @@ import {MDCard, MDButton, MDCardTitle, MDCardSubtitle, MDCardSection, MDDivider}
 const root = document.getElementById('root');
 
 const useStyles = createUseStyles({
-
-
     bg: {
         width: '98%',
         height: '98%',
@@ -77,7 +75,6 @@ const App = () => {
                 <MDButton accentColor='#212121'>Button</MDButton>
                 <MDButton outlined accentColor='#212121'>Button</MDButton>
                 <MDButton text accentColor='#212121'>Button</MDButton>
-                <MDButton outlined></MDButton>
             </div>
         </div>
     </>

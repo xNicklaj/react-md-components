@@ -1,5 +1,6 @@
 import React from 'react';
 import styles from './styles/divider.module.scss';
+import PropTypes from 'prop-types';
 
 const MDDivider = (props) => {
     const color = props.color || ''
@@ -8,7 +9,13 @@ const MDDivider = (props) => {
     );
 };
 
-module.exports = {
-    MDDivider
-};
+MDDivider.proptypes = {
+    color: PropTypes.string
+}
+
+MDDivider.defaultProps = {
+    color: `#000`
+}
+
+export {MDDivider};
 export default MDDivider;

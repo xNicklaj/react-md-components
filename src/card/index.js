@@ -64,9 +64,4 @@ MDCard.defaultProps = {
     dark: false
 }
 
-module.exports = {
-    MDCard,
-    MDCardTitle,
-    MDCardSubtitle,
-    MDCardSection
-}
+export {MDCard, MDCardTitle, MDCardSubtitle, MDCardSection}

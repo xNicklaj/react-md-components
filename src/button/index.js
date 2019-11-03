@@ -27,6 +27,5 @@ MDButton.defaultProps = {
     text: false
 }
 
-module.exports = {
-    MDButton
-}
+export {MDButton}
+export default MDButton

@@ -1,8 +1,8 @@
-import {MDCard, MDCardTitle, MDCardSubtitle, MDCardSection} from './card'
-import {MDDivider} from './divider';
-import {MDButton} from './button'
+import {MDCard, MDCardTitle, MDCardSubtitle, MDCardSection} from './card/index'
+import {MDDivider} from './divider/index';
+import {MDButton} from './button/index'
 
-module.exports = {
+export {
     MDCard,
     MDCardTitle,
     MDCardSubtitle,
