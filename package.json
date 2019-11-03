@@ -1,6 +1,6 @@
 {
   "name": "react-md-components",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "This is a react module containing a free collection of material design components.",
   "main": "dist/index.js",
   "scripts": {
