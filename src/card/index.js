@@ -5,10 +5,18 @@ import styles from './styles/card.module.scss'
 
 const MDCard = (props) => {
     const palette = props.dark ? require('./styles/card-dark.module.scss') : require('./styles/card-light.module.scss')
-    const headerChildren = props.children.filter(child => child.props.displayName === 'MDCardTitle' || child.props.displayName === 'MDCardSubtitle');
-    const footerChildren = props.children.filter(child => child.props.displayName === 'MDButton');
-    const contentChildren = props.children.filter(child => child.props.displayName !== 'MDCardTitle' && child.props.displayName !== 'MDCardSubtitle' && child.props.displayName !== 'MDButton' && child.props.displayName !== 'MDDivider')
-    
+    const children = [...props.children];
+    let headerChildren = [];
+    let footerChilden = [];
+    let contentChildren = [];
+
+    if(children.length > 0)
+    {
+        headerChildren = children.filter(child => child.props.displayName != null && (child.props.displayName === 'MDCardTitle' || child.props.displayName === 'MDCardSubtitle'));
+        footerChildren = children.filter(child => child.props.displayName != null && child.props.displayName === 'MDButton');
+        contentChildren = children.filter(child => child.props.displayName != null && (child.props.displayName !== 'MDCardTitle' && child.props.displayName !== 'MDCardSubtitle' && child.props.displayName !== 'MDButton' && child.props.displayName !== 'MDDivider'))
+    }
+
     return <>
         <div {...props} className={`${styles.MDCard} ${palette.MDCard} ${props.className ? props.className : ''}`} >
             {props.media ? <img className={styles.MDCardMedia} src={`${props.media}`} alt={`${props.media}`} /> : null}
@@ -20,7 +28,7 @@ const MDCard = (props) => {
                     {contentChildren}
                 </div>
                 {
-                    footerChildren.length ? props.children.filter(child => child.props.displayName === 'MDDivider') : null
+                    footerChildren.length ? children.filter(child => child.props.displayName === 'MDDivider') : null
                 }
                 <div className={`${styles.MDCardFooter} ${styles.MDCardFooter}`}>
                     {footerChildren}
@@ -62,11 +70,11 @@ MDCard.propTypes = {
 MDCard.defaultProps = {
     media: '',
     dark: false,
-    displayName: 'MDButton'
+    displayName: 'MDCard'
 }
 
 MDCardTitle.defaultProps = {
-    displayName: 'MDCardtitle'
+    displayName: 'MDCardTitle'
 }
 
 MDCardSubtitle.defaultProps = {
