@@ -31,7 +31,7 @@ const MDCard = (props) => {
                     {contentChildren}
                 </div>
                 {
-                    footerChildren.length ? children.filter(child => child.props.displayName === 'MDDivider') : null
+                    footerChildren.length ? footerChildren : null
                 }
                 <div className={`${styles.MDCardFooter} ${styles.MDCardFooter}`}>
                     {footerChildren}
