@@ -5,10 +5,14 @@ import styles from './styles/card.module.scss'
 
 const MDCard = (props) => {
     const palette = props.dark ? require('./styles/card-dark.module.scss') : require('./styles/card-light.module.scss')
-    const children = [...props.children];
+    let children = [];
     let headerChildren = [];
     let footerChilden = [];
     let contentChildren = [];
+    if(props.children && props.children.length > 1)
+        children = [...props.children];
+    else if(props.children && props.children.length === 1)
+        children = [props.children]
 
     if(children.length > 0)
     {
