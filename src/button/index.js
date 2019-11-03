@@ -24,7 +24,8 @@ MDButton.propTypes = {
 MDButton.defaultProps = {
     accentColor: '',
     outlined: false,
-    text: false
+    text: false,
+    displayName: 'MDButton'
 }
 
 export {MDButton}

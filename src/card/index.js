@@ -5,9 +5,9 @@ import styles from './styles/card.module.scss'
 
 const MDCard = (props) => {
     const palette = props.dark ? require('./styles/card-dark.module.scss') : require('./styles/card-light.module.scss')
-    const headerChildren = props.children.filter(child => child.type.name === 'MDCardTitle' || child.type.name === 'MDCardSubtitle');
-    const footerChildren = props.children.filter(child => child.type.name === 'MDButton');
-    const contentChildren = props.children.filter(child => child.type.name !== 'MDCardTitle' && child.type.name !== 'MDCardSubtitle' && child.type.name !== 'MDButton' && child.type.name !== 'MDDivider')
+    const headerChildren = props.children.filter(child => child.props.displayName === 'MDCardTitle' || child.props.displayName === 'MDCardSubtitle');
+    const footerChildren = props.children.filter(child => child.props.displayName === 'MDButton');
+    const contentChildren = props.children.filter(child => child.props.displayName !== 'MDCardTitle' && child.props.displayName !== 'MDCardSubtitle' && child.props.displayName !== 'MDButton' && child.props.displayName !== 'MDDivider')
     
     return <>
         <div {...props} className={`${styles.MDCard} ${palette.MDCard} ${props.className ? props.className : ''}`} >
@@ -20,7 +20,7 @@ const MDCard = (props) => {
                     {contentChildren}
                 </div>
                 {
-                    footerChildren.length ? props.children.filter(child => child.type.name === 'MDDivider') : null
+                    footerChildren.length ? props.children.filter(child => child.props.displayName === 'MDDivider') : null
                 }
                 <div className={`${styles.MDCardFooter} ${styles.MDCardFooter}`}>
                     {footerChildren}
@@ -61,7 +61,20 @@ MDCard.propTypes = {
 
 MDCard.defaultProps = {
     media: '',
-    dark: false
+    dark: false,
+    displayName: 'MDButton'
+}
+
+MDCardTitle.defaultProps = {
+    displayName: 'MDCardtitle'
+}
+
+MDCardSubtitle.defaultProps = {
+    displayName: 'MDCardSubtitle'
+}
+
+MDCardSection.defaultProps = {
+    displayName: 'MDCardSection'
 }
 
 export {MDCard, MDCardTitle, MDCardSubtitle, MDCardSection}

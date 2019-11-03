@@ -14,7 +14,8 @@ MDDivider.proptypes = {
 }
 
 MDDivider.defaultProps = {
-    color: `#000`
+    color: `#000`,
+    displayName: 'MDDivider'
 }
 
 export {MDDivider};
