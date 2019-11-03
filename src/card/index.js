@@ -6,8 +6,9 @@ import styles from './styles/card.module.scss'
 const MDCard = (props) => {
     const palette = props.dark ? require('./styles/card-dark.module.scss') : require('./styles/card-light.module.scss')
     let headerChildren = [];
-    let footerChilden = [];
+    let footerChildren = [];
     let contentChildren = [];
+    let children = [];
     if(props.children && props.children.length > 1)
         children = [...props.children];
     else if(props.children && props.children.length === 1)
@@ -31,7 +32,7 @@ const MDCard = (props) => {
                     {contentChildren}
                 </div>
                 {
-                    footerChildren.length ? footerChildren : null
+                    children && footerChildren.length ? children.filter(child => child.props.displayName === 'MDDivider') : null
                 }
                 <div className={`${styles.MDCardFooter} ${styles.MDCardFooter}`}>
                     {footerChildren}
