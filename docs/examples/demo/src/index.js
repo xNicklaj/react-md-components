@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import {createUseStyles} from 'react-jss'
 
-import {MDCard, MDButton, MDCardTitle, MDCardSubtitle, MDCardSection, MDDivider} from 'react-md-components'
+import {MDCard, MDButton, MDCardTitle, MDCardSubtitle, MDCardSection, MDDivider, MDFloatingButton} from 'react-md-components'
 
 const root = document.getElementById('root');
 
@@ -35,7 +35,16 @@ const useStyles = createUseStyles({
         display: 'flex',
         flexDirection: 'column',
         justifyContent: 'space-between'
+    },
+
+    br: {
+        minHeight: '8rem',
+        display: 'flex',
+        flexDirection: 'row',
+        justifyContent: 'space-evenly',
+        alignItems: 'center'
     }
+
 });
 
 const App = () => {
@@ -75,6 +84,10 @@ const App = () => {
                 <MDButton accentColor='#212121'>Button</MDButton>
                 <MDButton outlined accentColor='#212121'>Button</MDButton>
                 <MDButton text accentColor='#212121'>Button</MDButton>
+            </div>
+            <div className={style.br}>
+                <MDFloatingButton >+</MDFloatingButton>
+                <MDFloatingButton mini>+</MDFloatingButton>
             </div>
         </div>
     </>
