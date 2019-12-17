@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import {createUseStyles} from 'react-jss'
 
-import {MDCard, MDButton, MDCardTitle, MDCardSubtitle, MDCardSection, MDDivider, MDFloatingButton} from 'react-md-components'
+import {MDCard, MDButton, MDCardTitle, MDCardSubtitle, MDCardSection, MDDivider, MDFloatingButton, MDTextField} from 'react-md-components'
 
 const root = document.getElementById('root');
 
@@ -88,6 +88,14 @@ const App = () => {
             <div className={style.br}>
                 <MDFloatingButton >+</MDFloatingButton>
                 <MDFloatingButton mini>+</MDFloatingButton>
+            </div>
+            <div className={style.bw}>
+                <MDTextField style={{marginTop: '.4em', marginBottom: '.4em'}} label='Label' />
+                <MDTextField style={{marginTop: '.4em', marginBottom: '.4em'}} label='Label' error />
+            </div>
+            <div className={style.bw}>
+                <MDTextField style={{marginTop: '.4em', marginBottom: '.4em'}} label='Label' outlined />
+                <MDTextField style={{marginTop: '.4em', marginBottom: '.4em'}} label='Label' outlined error />
             </div>
         </div>
     </>

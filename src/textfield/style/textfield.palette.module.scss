@@ -1,0 +1,54 @@
+@import '../../global.palettes.scss';
+
+.MDTextField {
+    border-bottom-color: $bg-color-light-grey;
+    caret-color: $bg-color-light-grey;
+    background: rgba(0, 0, 0, 0.09);
+}
+
+.MDTextFieldOutlined {
+    border-color: black;
+    background: white;
+}
+
+.MDTextFieldOutlined:focus-within {
+    border-color: $default-accent-color-700;
+}
+
+.MDTextField:hover {
+    background: rgba(0, 0, 0, 0.12);
+}
+
+.MDTextField:focus-within {
+    border-bottom-color: $default-accent-color-700;
+    caret-color: $default-accent-color-700;
+}
+
+.MDTextField:focus-within .Label {
+    color: $default-accent-color-700;
+}
+
+.MDTextFieldOutlined:focus-within .Label {
+    color: $default-accent-color-700;
+}
+
+.Label {
+    color: $bg-color-light-grey;
+}
+
+.TextInput {
+    color: rgba(0, 0, 0, .87);
+}
+
+.TextFieldError {
+    border-color: $default-error-color;
+    caret-color: $default-error-color;
+}
+
+.TextFieldError:focus-within {
+    border-color: $default-error-color;
+}
+
+.LabelError {
+    color: $default-error-color;
+}
