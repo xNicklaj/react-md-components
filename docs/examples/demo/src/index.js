@@ -90,11 +90,11 @@ const App = () => {
                 <MDFloatingButton mini>+</MDFloatingButton>
             </div>
             <div className={style.bw}>
-                <MDTextField style={{marginTop: '.4em', marginBottom: '.4em'}} label='Label' />
-                <MDTextField style={{marginTop: '.4em', marginBottom: '.4em'}} label='Label' error />
+                <MDTextField style={{marginTop: '.4em', marginBottom: '.4em'}} label='Username' type='email'/>
+                <MDTextField style={{marginTop: '.4em', marginBottom: '.4em'}} label='Password' type='password' />
             </div>
             <div className={style.bw}>
-                <MDTextField style={{marginTop: '.4em', marginBottom: '.4em'}} label='Label' outlined />
+                <MDTextField style={{marginTop: '.4em', marginBottom: '.4em'}} label='Label' error />
                 <MDTextField style={{marginTop: '.4em', marginBottom: '.4em'}} label='Label' outlined error />
             </div>
         </div>
