@@ -49,6 +49,7 @@ const useStyles = createUseStyles({
 
 const App = () => {
     const style = useStyles();
+    const inputRef = React.createRef();
     return <>
         <div className={style.bg}>
             <MDCard media='https://images7.alphacoders.com/909/909467.jpg' >
@@ -90,7 +91,7 @@ const App = () => {
                 <MDFloatingButton mini>+</MDFloatingButton>
             </div>
             <div className={style.bw}>
-                <MDTextField style={{marginTop: '.4em', marginBottom: '.4em'}} label='Username' type='email'/>
+                <MDTextField style={{marginTop: '.4em', marginBottom: '.4em'}} label='Username' type='email' ref={inputRef}/>
                 <MDTextField style={{marginTop: '.4em', marginBottom: '.4em'}} label='Password' type='password' />
             </div>
             <div className={style.bw}>

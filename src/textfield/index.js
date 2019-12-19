@@ -3,18 +3,21 @@ import style from './style/textfield.module.scss';
 import palette from './style/textfield.palette.module.scss';
 import PropTypes from 'prop-types';
 
-const MDTextField = props => {
+const MDTextField = React.forwardRef((props, ref) => {
     const [isFocused, setFocused] = useState(false);
     const [isEmpty, setEmpty] = useState(true);
     const error = props.error;
     const type = props.type.toLowerCase();
     if(!type.match(/^(email|text|password|search)$/))
         throw "Invalid type. Type must be either email, text, password or search."
-    console.log('error: ' + error + 'focus: ' + isFocused);
-    const _setFocus = () => {
+    const _handleFocus = () => {
         setFocused(true);
     };
-    const _setUnfocus = () => {
+    const _handleClick = () => {
+        if(!isFocused)
+            inputRef.focus();
+    }
+    const _handleBlur = () => {
         setFocused(false);
     };
     const _handleChange = e => {
@@ -25,8 +28,9 @@ const MDTextField = props => {
         {...props}
         style={{borderColor: props.error ? "rgb(176, 0, 32)" : props.color && isFocused ? props.color : ""}}
         className={`${props.outlined ? style.MDTextFieldOutlined : style.MDTextField} ${props.outlined ? palette.MDTextFieldOutlined : palette.MDTextField} ${props.className ? props.className : ''}`}
-        onFocus={_setFocus}
-        onBlur={_setUnfocus}
+        onFocus={_handleFocus}
+        onClick={_handleClick}
+        onBlur={_handleBlur}
         >
         <label
             className={`${style.Label} ${palette.Label}`}
@@ -43,11 +47,12 @@ const MDTextField = props => {
             className={`${style.TextInput} ${palette.TextInput}`}
             onChange={_handleChange}
             type={type}
+            ref={ref}
             />
         </span>
         </div>
     );
-};
+});
   
 MDTextField.propTypes = {
     accentColor: PropTypes.string,
