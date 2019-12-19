@@ -20,7 +20,7 @@ yarn add react-md-components
 ## Usage 
 
 All components are exported through the main index.js (I haven't accomplished yet to set it as a flat package);
-Here's an example (You can also find it in the docs):
+Here's an example (You can find it also in the docs):
 
 ```
 import React from 'react';
@@ -61,12 +61,28 @@ Reference: [material.io/components/cards/](https://material.io/components/cards/
     MDButton
     MDButton.outlined: bool, default: false \\ this makes the button assume an outlined style.
     MDButton.text: bool, default: false \\ this makes the button assume a text-only style.
-    MDButton.accentColor: string, default: '' \\ this defines the accent color of the button.
+    MDButton.accentColor: string, default: '' \\ this defines the accent color of the component.
 
     Note: the default style will be condensed. To select this, avoid using .text or .outlined.
     Note: only use either .text or .outlined.
 ```
 Reference: [material.io/components/buttons/](https://material.io/components/buttons/)
+```
+    MDTextField
+    MDTextField.outlined: bool, default: false \\ this makes the textfield assume an outlined style.
+    MDTextField.error: bool, default: false \\ this defines whether the textfield must assume an error identity.
+    MDTextField.type: string, default: 'text' \\ this defines the type of the input field.
+    MDTextField.accentColor: string, default: '' \\ this defines the accent color of the component.
+```
+Reference: [material.io/components/textfields/](https://material.io/components/textfields/)
+
+## TO-DO
+
+MDFloatingButton: this component is still in beta and its documentation will be released upon its completion.
+MDBanners
+Chips
+
+Fix: dynamic child assignment in cards not working.
 
 ## License
 This library is using MIT License.
