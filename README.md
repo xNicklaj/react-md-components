@@ -1,19 +1,27 @@
-# react-md-components
+<h1  align="center">RMD</h1>
+<h3  align="center">react-md-components</h3>
+<div  align="center">
+
+[![Dependabot Status](https://api.dependabot.com/badges/status?host=github&repo=xNicklaj/react-md-components)](https://dependabot.com) [![dependencies Status](https://david-dm.org/xNicklaj/react-md-components/status.svg)](https://david-dm.org/xNicklaj/react-md-components/status.svg) [![devDependencies Status](https://david-dm.org/xNicklaj/react-md-components/dev-status.svg)](https://david-dm.org/xNicklaj/react-md-components/dev-status.svg)
+
+</div>
+
 [DEMO](https://xnicklaj.github.io/react-md-components/)
-
 [React](https://reactjs.org) components based on [material.io](https://material.io) guidelines handcoded by a normal non-google developer.
-
 ## Why choose this package
+
 Have you ever wanted to create a website using material design and tried Material-UI? Let's be honest, that package is hard to use, especially if you want to style it your own way, and that's exactly why I've decided to create a similar package that resembles Google's Material Design, but with simple, basic features.
 
+
 ## Installation
+
 You can download react-md-components as an npm package.
 
 ```
-// using npm
 npm install react-md-components
-
-// using yarn
+```
+or
+```
 yarn add react-md-components
 
 ```
@@ -79,11 +87,11 @@ Reference: [material.io/components/textfields/](https://material.io/components/t
 
 ## TO-DO
 
-MDFloatingButton: this component is still in beta and its documentation will be released upon its completion.
-MDBanners
-Chips
+* MDFloatingButton: this component is still in beta and its documentation will be released upon its completion.
+* MDBanners
+* Chips
 
-Fix: dynamic child assignment in cards not working.
+* Fix: dynamic child assignment in cards not working.
 
 ## License
 This library is using MIT License.
