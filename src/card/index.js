@@ -76,7 +76,7 @@ const MDCardSection = ({ children }) => {
 
 MDCard.propTypes = {
   media: PropTypes.string,
-  title: PropTypes.string,
+  title: PropTypes.string.isRequired,
   subtitle: PropTypes.string,
   dark: PropTypes.bool,
   accentColor: PropTypes.string,
