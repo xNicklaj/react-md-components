@@ -106,6 +106,7 @@ Reference: [material.io/components/buttons/](https://material.io/components/butt
     MDTextField.error: bool, default: false \\ this defines whether the textfield must assume an error identity.
     MDTextField.type: string, default: 'text' \\ this defines the type of the input field.
     MDTextField.accentColor: string, default: '' \\ this defines the accent color of the component.
+    MDTextField.name: string, default: '' \\ this defines the name of the textfield in the dom.
 ```
 Reference: [material.io/components/textfields/](https://material.io/components/textfields/)
 

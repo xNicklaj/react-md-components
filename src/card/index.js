@@ -55,7 +55,7 @@ const MDCard = props => {
                   key={action.key}
                   onClick={action.onClick}
                   text
-                  type='button'
+                  type="button"
                   accentColor={props.accentColor}
                 >
                   {action.title}

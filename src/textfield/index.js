@@ -25,7 +25,6 @@ const MDTextField = React.forwardRef((props, ref) => {
   };
   return (
     <div
-      {...props}
       style={{
         borderColor: props.error
           ? 'rgb(176, 0, 32)'
@@ -69,6 +68,7 @@ const MDTextField = React.forwardRef((props, ref) => {
           className={`${style.TextInput} ${palette.TextInput}`}
           onChange={_handleChange}
           type={type}
+          name={props.name}
           ref={ref || inputRef}
         />
       </span>
@@ -85,6 +85,7 @@ MDTextField.propTypes = {
   label: PropTypes.string,
   className: PropTypes.string,
   type: PropTypes.string,
+  name: PropTypes.string,
   displayName: PropTypes.string,
 };
 
@@ -92,6 +93,7 @@ MDTextField.defaultProps = {
   accentColor: '',
   outlined: false,
   error: false,
+  name: '',
   displayName: 'MDTextField',
   type: 'text',
 };
