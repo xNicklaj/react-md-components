@@ -1,92 +1,107 @@
-import React from 'react'
+import React from 'react';
 import PropTypes from 'prop-types';
-import styles from './styles/card.module.scss'
+import styles from './styles/card.module.scss';
 
+import MDButton from '../button/index';
 
-const MDCard = (props) => {
-    const palette = props.dark ? require('./styles/card-dark.module.scss') : require('./styles/card-light.module.scss')
-    let headerChildren = [];
-    let footerChildren = [];
-    let contentChildren = [];
-    let children = [];
-    if(props.children && props.children.length > 1)
-        children = [...props.children];
-    else if(props.children && props.children.length === 1)
-        children = [props.children]
+import DarkPalette from './styles/card-dark.module.scss';
+import LightPalette from './styles/card-light.module.scss';
 
-    if(children.length > 0)
-    {
-        headerChildren = children.filter(child => child.props.displayName != null && (child.props.displayName === 'MDCardTitle' || child.props.displayName === 'MDCardSubtitle'));
-        footerChildren = children.filter(child => child.props.displayName != null && child.props.displayName === 'MDButton');
-        contentChildren = children.filter(child => child.props.displayName != null && (child.props.displayName !== 'MDCardTitle' && child.props.displayName !== 'MDCardSubtitle' && child.props.displayName !== 'MDButton' && child.props.displayName !== 'MDDivider'))
-    }
+const MDCard = props => {
+  const palette = props.dark ? DarkPalette : LightPalette;
+  const children = props.children || [];
+  let actions = props.actions || [];
+  let contentChildren = [];
+  console.log(actions);
+  console.log(children);
+  if (children && children.length > 0)
+    contentChildren = children.filter(
+      child =>
+        child.props.displayName != null &&
+        child.props.displayName !== 'MDCardTitle' &&
+        child.props.displayName !== 'MDCardSubtitle' &&
+        child.props.displayName !== 'MDButton' &&
+        child.props.displayName !== 'MDDivider'
+    );
 
-    return <>
-        <div {...props} className={`${styles.MDCard} ${palette.MDCard} ${props.className ? props.className : ''}`} >
-            {props.media ? <img className={styles.MDCardMedia} src={`${props.media}`} alt={`${props.media}`} /> : null}
-            <div>
-                <div className={`${styles.MDCardHeader} ${palette.MDCardHeader}`}>
-                    {headerChildren}
-                </div>
-                <div className={`${styles.MDCardContent} ${palette.MDCardContent}`}>
-                    {contentChildren}
-                </div>
-                {
-                    children && footerChildren.length ? children.filter(child => child.props.displayName === 'MDDivider') : null
-                }
-                <div className={`${styles.MDCardFooter} ${styles.MDCardFooter}`}>
-                    {footerChildren}
-                </div>
-            </div>
+  return (
+    <>
+      <div
+        {...props}
+        className={`${styles.MDCard} ${palette.MDCard} ${
+          props.className ? props.className : ''
+        }`}
+      >
+        {props.media ? (
+          <img
+            className={styles.MDCardMedia}
+            src={`${props.media}`}
+            alt={`${props.media}`}
+          />
+        ) : null}
+        <div>
+          <div className={`${styles.MDCardHeader} ${palette.MDCardHeader}`}>
+            <h2 className={styles.MDCardTitle}>{props.title}</h2>
+            <h4 className={styles.MDCardSubtitle}>{props.subtitle}</h4>
+          </div>
+          <div className={`${styles.MDCardContent} ${palette.MDCardContent}`}>
+            {contentChildren}
+          </div>
+          {children && actions.length
+            ? children.filter(child => child.props.displayName === 'MDDivider')
+            : null}
+          <div className={`${styles.MDCardFooter} ${styles.MDCardFooter}`}>
+            {actions.map(action => {
+              return (
+                <MDButton
+                  key={action.key}
+                  onClick={action.onClick}
+                  text
+                  accentColor={props.accentColor}
+                >
+                  {action.title}
+                </MDButton>
+              );
+            })}
+          </div>
         </div>
-    </>;
-}
+      </div>
+    </>
+  );
+};
 
-const MDCardTitle = ({children}) => {
-    return (
-        <h2 className={styles.MDCardTitle}>
-            {children}
-        </h2>
-    )
-}
-
-const MDCardSubtitle = ({children}) => {
-    return (
-        <h4 className={styles.MDCardSubtitle}>
-            {children}
-        </h4>
-    )
-}
-
-const MDCardSection = ({children}) => {
-    return (
-        <p className={styles.MDCardSection}>
-            {children}
-        </p>
-    )
-}
+const MDCardSection = ({ children }) => {
+  return <p className={styles.MDCardSection}>{children}</p>;
+};
 
 MDCard.propTypes = {
-    media: PropTypes.string,
-    dark: PropTypes.bool
-}
+  media: PropTypes.string,
+  title: PropTypes.string,
+  subtitle: PropTypes.string,
+  dark: PropTypes.bool,
+  accentColor: PropTypes.string,
+  actions: PropTypes.arrayOf(PropTypes.object),
+  children: PropTypes.any,
+  className: PropTypes.string,
+  style: PropTypes.any,
+};
 
 MDCard.defaultProps = {
-    media: '',
-    dark: false,
-    displayName: 'MDCard'
-}
-
-MDCardTitle.defaultProps = {
-    displayName: 'MDCardTitle'
-}
-
-MDCardSubtitle.defaultProps = {
-    displayName: 'MDCardSubtitle'
-}
+  media: '',
+  title: '',
+  accentColor: '',
+  actions: [],
+  subtitle: '',
+  dark: false,
+  displayName: 'MDCard',
+};
 
 MDCardSection.defaultProps = {
-    displayName: 'MDCardSection'
-}
+  displayName: 'MDCardSection',
+};
 
-export {MDCard, MDCardTitle, MDCardSubtitle, MDCardSection}
+MDCardSection.propTypes = {
+  children: PropTypes.any,
+};
+
+export { MDCard, MDCardSection };
