@@ -11,17 +11,21 @@ const MDTextField = React.forwardRef((props, ref) => {
   const inputRef = ref || React.createRef();
   if (!type.match(/^(email|text|password|search)$/))
     throw 'Invalid type. Type must be either email, text, password or search.';
-  const _handleFocus = () => {
+  const _handleFocus = e => {
     setFocused(true);
+    props.onFocus ? props.onFocus(e) : null;
   };
-  const _handleClick = () => {
+  const _handleClick = e => {
     if (!isFocused) inputRef.focus();
+    props.onClick ? props.onClick(e) : null;
   };
-  const _handleBlur = () => {
+  const _handleBlur = e => {
     setFocused(false);
+    props.onBlur ? props.onBlur(e) : null;
   };
   const _handleChange = e => {
     setEmpty(e.target.value.length > 0 ? false : true);
+    props.onChange ? props.onChange(e) : null;
   };
   return (
     <div
@@ -87,6 +91,10 @@ MDTextField.propTypes = {
   type: PropTypes.string,
   name: PropTypes.string,
   displayName: PropTypes.string,
+  onFocus: PropTypes.func,
+  onClick: PropTypes.func,
+  onBlur: PropTypes.func,
+  onChange: PropTypes.func,
 };
 
 MDTextField.defaultProps = {
