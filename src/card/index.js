@@ -12,8 +12,6 @@ const MDCard = props => {
   const children = props.children || [];
   let actions = props.actions || [];
   let contentChildren = [];
-  console.log(actions);
-  console.log(children);
   if (children && children.length > 0)
     contentChildren = children.filter(
       child =>
@@ -57,6 +55,7 @@ const MDCard = props => {
                   key={action.key}
                   onClick={action.onClick}
                   text
+                  type='button'
                   accentColor={props.accentColor}
                 >
                   {action.title}
