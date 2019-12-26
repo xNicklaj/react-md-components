@@ -1,16 +1,20 @@
+@import '../../global.palettes.scss';
+@import '../../global.scss';
 @font-face {
     font-family: 'Material Icons';
     font-style: normal;
     font-weight: 400;
-    src: url('./MaterialIcons-Regular.eot'); /* For IE6-8 */
+    src: url(./MaterialIcons-Regular.eot); /* For IE6-8 */
     src: local('Material Icons'),
       local('MaterialIcons-Regular'),
-      url('./MaterialIcons-Regular.woff2') format('woff2'),
-      url('./MaterialIcons-Regular.woff') format('woff'),
-      url('./MaterialIcons-Regular.ttf') format('truetype');
+      url(./MaterialIcons-Regular.woff2) format('woff2'),
+      url(./MaterialIcons-Regular.woff) format('woff'),
+      url(./MaterialIcons-Regular.ttf) format('truetype');
   }
 
 .MDIcon {
-  font-size: 100%;
+  font-size: $preferred-icon-size;
   font-family: 'Material Icons';
+  color: $bg-color-light-grey;
+  cursor: pointer;
 }

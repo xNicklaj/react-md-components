@@ -72,10 +72,10 @@ module.exports = {
         ]
       },
       {
-        test: /\.(woff2|woff|eot|ttf)$/i,
+        test: /\.(woff|woff2|eot|ttf)$/i,
         use: [
           {
-            loader: 'file-loader',
+            loader: 'url-loader',
           },
         ],
       }

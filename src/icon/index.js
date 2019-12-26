@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 const MDIcon = ({ icon, className, onClick, onMouseOver }) => {
   return (
     <i
-      className={`${style.MDIcon} ${className}`}
+      className={`${style.MDIcon} ${className ? className : ''}`}
       onClick={onClick}
       onMouseOver={onMouseOver}
     >
