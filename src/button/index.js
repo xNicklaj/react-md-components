@@ -28,7 +28,7 @@ const MDButton = React.forwardRef((props, ref) => {
         } ${props.className || ''}`}
         style={{
           borderColor: props.text || props.outlined ? accentColor : '',
-          color: props.text || props.outlined ? accentColor : '',
+          color: props.text || props.outlined ? accentColor : props.textColor,
           background: !props.text && !props.outlined ? accentColor : '',
         }}
         type={props.type}
@@ -44,6 +44,7 @@ const MDButton = React.forwardRef((props, ref) => {
 
 MDButton.propTypes = {
   accentColor: PropTypes.string,
+  textColor: PropTypes.string,
   outlined: PropTypes.bool,
   text: PropTypes.bool,
   type: PropTypes.oneOf(['button', 'reset', 'submit']),
@@ -57,6 +58,7 @@ MDButton.propTypes = {
 
 MDButton.defaultProps = {
   accentColor: '',
+  textColor: '',
   outlined: false,
   text: false,
   type: 'button',

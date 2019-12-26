@@ -4,32 +4,21 @@
   "description": "",
   "main": "dist/index.js",
   "scripts": {
-    "start": "webpack --watch",
-    "build": "webpack",
-    "start:dev": "webpack-dev-server"
+    "start:storybook": "start-storybook",
+    "build": "build-storybook -c .storybook -o dist"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
     "react": "^16.11.0",
+    "react-color": "^2.17.3",
     "react-dom": "^16.11.0",
     "react-jss": "^10.0.0"
   },
   "devDependencies": {
     "@babel/core": "^7.6.4",
-    "@babel/preset-env": "^7.6.3",
-    "@babel/preset-react": "^7.6.3",
-    "babel-loader": "^8.0.6",
-    "css-loader": "^3.2.0",
-    "file-loader": "^4.2.0",
-    "html-loader": "^0.5.5",
-    "html-webpack-plugin": "^3.2.0",
-    "mini-css-extract-plugin": "^0.8.0",
-    "sass-loader": "^8.0.0",
-    "style-loader": "^1.0.0",
-    "webpack": "^4.41.2",
-    "webpack-cli": "^3.3.9",
-    "webpack-dev-server": "^3.9.0"
+    "@storybook/react": "^5.2.8",
+    "babel-loader": "^8.0.6"
   }
 }
