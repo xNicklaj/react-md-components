@@ -70,6 +70,14 @@ module.exports = {
             }
           }
         ]
+      },
+      {
+        test: /\.(woff2|woff|eot|ttf)$/i,
+        use: [
+          {
+            loader: 'file-loader',
+          },
+        ],
       }
     ]
   },

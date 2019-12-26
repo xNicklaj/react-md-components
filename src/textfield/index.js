@@ -2,12 +2,16 @@ import React, { useState } from 'react';
 import style from './style/textfield.module.scss';
 import palette from './style/textfield.palette.module.scss';
 import PropTypes from 'prop-types';
+import {MDIcon} from '../icon/index';
+
 
 const MDTextField = React.forwardRef((props, ref) => {
   const [isFocused, setFocused] = useState(false);
   const [isEmpty, setEmpty] = useState(true);
   const error = props.error;
   const type = props.type.toLowerCase();
+  const [isVisible, setVisible] = useState(false);
+
   const inputRef = ref || React.createRef();
   if (!type.match(/^(email|text|password|search)$/))
     throw 'Invalid type. Type must be either email, text, password or search.';
@@ -26,7 +30,7 @@ const MDTextField = React.forwardRef((props, ref) => {
   const _handleChange = e => {
     setEmpty(e.target.value.length > 0 ? false : true);
     props.onChange ? props.onChange(e) : null;
-  };
+  }
   return (
     <div
       style={{
@@ -71,10 +75,15 @@ const MDTextField = React.forwardRef((props, ref) => {
           }}
           className={`${style.TextInput} ${palette.TextInput}`}
           onChange={_handleChange}
-          type={type}
+          type={
+            type == 'password' ? (isVisible ? 'text' : 'password') : type
+          }
           name={props.name}
           ref={ref || inputRef}
         />
+        {
+          type == 'password' ? <MDIcon onClick={() => setVisible(!isVisible)} icon={isVisible ? 'visibility_off' : 'visibility'}/> : null
+        }
       </span>
     </div>
   );
