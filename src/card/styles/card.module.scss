@@ -2,6 +2,7 @@
 
 .MDCard {
     border-radius: $md-border-radius;
+    @include Roboto-medium;
     transition: all .25s linear;
     @include box-shadow-1dp;
 }

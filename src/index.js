@@ -11,5 +11,6 @@ export {
 	MDDivider,
 	MDButton,
 	MDFloatingButton,
-	MDTextField
+	MDTextField,
+	MDIcon
 };

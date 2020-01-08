@@ -2,6 +2,7 @@
 
 .MDTextField {
   border-bottom: solid 1px;
+  @include Roboto-medium;
   position: relative;
   border-radius: $md-border-radius-medium $md-border-radius-medium 0 0;
   min-height: 56px;
@@ -11,6 +12,7 @@
 
 .MDTextFieldOutlined {
   border: solid thin;
+  @include Roboto-medium;
   box-sizing: border-box;
   transition: border 0ms $ms150timing, caret-color 150ms $ms150timing;
   position: relative;
