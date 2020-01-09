@@ -7,11 +7,11 @@ import {MDIcon} from '../icon/index';
 
 const MDTextField = React.forwardRef((props, ref) => {
   const [isFocused, setFocused] = useState(false);
-  const [isEmpty, setEmpty] = useState(true);
+  const [isEmpty, setEmpty] = useState(props.value == '' ? true : false);
   const error = props.error;
   const type = props.type.toLowerCase();
   const [isVisible, setVisible] = useState(false);
-
+  
   const inputRef = ref || React.createRef();
   if (!type.match(/^(email|text|password|search)$/))
     throw 'Invalid type. Type must be either email, text, password or search.';
@@ -80,6 +80,8 @@ const MDTextField = React.forwardRef((props, ref) => {
           }
           name={props.name}
           ref={ref || inputRef}
+          value={props.value}
+          disabled={props.disabled}
         />
         {
           type == 'password' ? <MDIcon onClick={() => setVisible(!isVisible)} icon={isVisible ? 'visibility_off' : 'visibility'}/> : null
@@ -104,6 +106,8 @@ MDTextField.propTypes = {
   onClick: PropTypes.func,
   onBlur: PropTypes.func,
   onChange: PropTypes.func,
+  value: PropTypes.string,
+  disabled: PropTypes.bool
 };
 
 MDTextField.defaultProps = {
@@ -113,6 +117,8 @@ MDTextField.defaultProps = {
   name: '',
   displayName: 'MDTextField',
   type: 'text',
+  value: '',
+  disabled: false
 };
 
 export default MDTextField;

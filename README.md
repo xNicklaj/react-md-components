@@ -107,6 +107,8 @@ Reference: [material.io/components/buttons/](https://material.io/components/butt
     MDTextField.type: string, default: 'text' \\ this defines the type of the input field.
     MDTextField.accentColor: string, default: '' \\ this defines the accent color of the component.
     MDTextField.name: string, default: '' \\ this defines the name of the textfield in the dom.
+    MDTextField.value: string, default: '' \\ this defines the default value of the text field.
+    MDTextField.disabled: true, default: false \\ this defines the disabled attribute of the input field.
 ```
 Reference: [material.io/components/textfields/](https://material.io/components/textfields/)
 

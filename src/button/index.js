@@ -35,6 +35,7 @@ const MDButton = React.forwardRef((props, ref) => {
         name={props.name}
         form={props.form}
         ref={ref}
+        disabled={props.disabled}
       >
         {props.children}
       </button>

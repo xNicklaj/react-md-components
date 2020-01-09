@@ -42,3 +42,12 @@ export const outlinedPassword = () => {
         </div>
     </>
 }
+
+export const disabledText = () => {
+    const [isError, setError] = useState(false);
+    return <>
+        <div style={{display: 'grid', gridRowGap: '20px', maxWidth: '50%'}}>
+            <MDTextField label='Label' error={isError} type='text' outlined disabled/>
+        </div>
+    </>
+}
