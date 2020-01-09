@@ -11,7 +11,7 @@ const MDTextField = React.forwardRef((props, ref) => {
   const error = props.error;
   const type = props.type.toLowerCase();
   const [isVisible, setVisible] = useState(false);
-  
+  const [value, setValue] = useState(props.value);
   const inputRef = ref || React.createRef();
   if (!type.match(/^(email|text|password|search)$/))
     throw 'Invalid type. Type must be either email, text, password or search.';
@@ -29,6 +29,7 @@ const MDTextField = React.forwardRef((props, ref) => {
   };
   const _handleChange = e => {
     setEmpty(e.target.value.length > 0 ? false : true);
+    setValue(e.target.value);
     props.onChange ? props.onChange(e) : null;
   }
   return (
@@ -80,7 +81,7 @@ const MDTextField = React.forwardRef((props, ref) => {
           }
           name={props.name}
           ref={ref || inputRef}
-          value={props.value}
+          value={value}
           disabled={props.disabled}
         />
         {
