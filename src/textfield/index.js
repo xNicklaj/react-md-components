@@ -2,8 +2,7 @@ import React, { useState } from 'react';
 import style from './style/textfield.module.scss';
 import palette from './style/textfield.palette.module.scss';
 import PropTypes from 'prop-types';
-import {MDIcon} from '../icon/index';
-
+import { MDIcon } from '../icon/index';
 
 const MDTextField = React.forwardRef((props, ref) => {
   const [isFocused, setFocused] = useState(false);
@@ -31,7 +30,7 @@ const MDTextField = React.forwardRef((props, ref) => {
     setEmpty(e.target.value.length > 0 ? false : true);
     setValue(e.target.value);
     props.onChange ? props.onChange(e) : null;
-  }
+  };
   return (
     <div
       style={{
@@ -76,17 +75,19 @@ const MDTextField = React.forwardRef((props, ref) => {
           }}
           className={`${style.TextInput} ${palette.TextInput}`}
           onChange={_handleChange}
-          type={
-            type == 'password' ? (isVisible ? 'text' : 'password') : type
-          }
+          type={type == 'password' ? (isVisible ? 'text' : 'password') : type}
           name={props.name}
           ref={ref || inputRef}
           value={value}
           disabled={props.disabled}
         />
-        {
-          type == 'password' ? <MDIcon onClick={() => setVisible(!isVisible)} icon={isVisible ? 'visibility_off' : 'visibility'}/> : null
-        }
+        {type == 'password' ? (
+          <MDIcon
+            onClick={() => setVisible(!isVisible)}
+            icon={isVisible ? 'visibility_off' : 'visibility'}
+            className={style.Icon}
+          />
+        ) : null}
       </span>
     </div>
   );
@@ -108,7 +109,7 @@ MDTextField.propTypes = {
   onBlur: PropTypes.func,
   onChange: PropTypes.func,
   value: PropTypes.string,
-  disabled: PropTypes.bool
+  disabled: PropTypes.bool,
 };
 
 MDTextField.defaultProps = {
@@ -119,7 +120,7 @@ MDTextField.defaultProps = {
   displayName: 'MDTextField',
   type: 'text',
   value: '',
-  disabled: false
+  disabled: false,
 };
 
 export default MDTextField;

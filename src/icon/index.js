@@ -15,10 +15,10 @@ const MDIcon = ({ icon, className, onClick, onMouseOver }) => {
 };
 
 MDIcon.propTypes = {
-    className: PropTypes.string,
-    icon: PropTypes.string.isRequired,
-    onClick: PropTypes.func,
-    onMouseOver: PropTypes.func
+  className: PropTypes.string,
+  icon: PropTypes.string.isRequired,
+  onClick: PropTypes.func,
+  onMouseOver: PropTypes.func,
 };
 
 export default MDIcon;
