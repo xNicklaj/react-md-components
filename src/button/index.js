@@ -12,7 +12,6 @@ const MDButton = React.forwardRef((props, ref) => {
   return (
     <>
       <button
-        {...props}
         className={`${style.MDButton} ${
           props.text
             ? style.MDTextButton
@@ -36,6 +35,8 @@ const MDButton = React.forwardRef((props, ref) => {
         form={props.form}
         ref={ref}
         disabled={props.disabled}
+        onClick={props.onClick}
+        onMouseOver={props.onMouseOver}
       >
         {props.children}
       </button>
@@ -55,6 +56,8 @@ MDButton.propTypes = {
   disabled: PropTypes.bool,
   className: PropTypes.string,
   children: PropTypes.any,
+  onClick: PropTypes.func,
+  onMouseOver: PropTypes.func
 };
 
 MDButton.defaultProps = {
@@ -67,6 +70,8 @@ MDButton.defaultProps = {
   form: '',
   value: '',
   disabled: false,
+  onClick: null,
+  onMouseOver: null,
   displayName: 'MDButton',
 };
 
