@@ -45,7 +45,7 @@
     "@babel/preset-env": "^7.6.3",
     "@babel/preset-react": "^7.6.3",
     "babel-loader": "^8.0.6",
-    "css-loader": "^3.2.0",
+    "css-loader": "^4.1.1",
     "url-loader": "^3.0.0",
     "eslint": "^6.8.0",
     "jest": "^24.9.0",
